@@ -39,8 +39,8 @@ v_shock    = v_post*((rho_post/rho_r)/((rho_post/rho_r)-1));
 rho_middle = (rho_l)*power((P_post/P_l),1/gamma);
 
 % Boundaries (can be set)
-x_min    = -0.5;
-x_max    = 0.5;
+x_min = -0.5;
+x_max = 0.5;
 
 % Time
 t = 0.75*(x_max/v_shock); % Set to time for shock to reach 75% of x_max
@@ -211,6 +211,7 @@ M = u./c;
 E = E./rho;
 e = E-0.5*u.^2;
 H = E+P./rho;
+v = (abs(u)+c)*(dt/dx); % max value is the ideal CFL
 
 s(1) = s_l;
 for i=2:length(x)
